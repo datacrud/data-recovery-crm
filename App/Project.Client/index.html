@@ -1,0 +1,103 @@
+﻿<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>DATA CRUD Recovery CRM</title>
+
+    <link rel="stylesheet" href="Content/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link href="Content/angular-busy.min.css" rel="stylesheet" />
+    <link href="Content/gh-fork-ribbon.css" rel="stylesheet" />
+
+    <link href="Content/ng-grid.min.css" rel="stylesheet" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
+
+    <link href="dist/styles/v2.0.1/style.min.css" rel="stylesheet" />
+
+</head>
+<body ng-app="app">
+
+    <header ng-include="'dist/views/v2.0.1/nav.html'"></header>
+
+    <div class="container">
+        <div class="alertStyle alert-block text-center fade out" ng-class="{in: alert.isAlert}">
+            <span ng-hide="alert.autoHide">
+                <uib-alert type="{{alert.type}}" close="alert.close()">{{alert.msg}} </uib-alert>
+            </span>
+            <span ng-show="alert.autoHide">
+                <uib-alert type="{{alert.type}}">{{alert.msg}}</uib-alert>
+            </span>
+        </div>
+    </div>
+
+    <div ui-view class="container-fluid slide"></div>
+
+    <footer ng-include="'dist/views/v2.0.1/footer.html'"></footer>
+
+
+<!-- Scripts -->
+    <!--<script src="Scripts/jquery-2.2.3.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+
+
+<!-- angular-ui-bootstrap -->
+    <!--<script src="Scripts/angular-ui/angular-ui-router.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js" crossorigin="anonymous"></script>
+
+
+    <script src="Scripts/angular-busy.min.js"></script>
+    <script src="Scripts/ng-grid.min.js"></script>
+    <script src="Scripts/checklist-model.js"></script>
+
+
+<!-- app scripts -->
+    <script src="dist/scripts/v2.0.1/config.min.js"></script>
+    <script src="dist/scripts/v2.0.1/directive.min.js"></script>
+    <script src="dist/scripts/v2.0.1/service.min.js"></script>
+    <script src="dist/scripts/v2.0.1/controller.min.js"></script>
+    
+
+
+
+
+
+    <script>
+        $(document).on('click',function(){
+            $('.collapse').collapse('hide');
+        })
+    </script>
+</body>
+</html>

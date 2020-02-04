@@ -1,0 +1,60 @@
+﻿<div class="row" cg-busy="promise">
+
+    <div>
+        <button ui-sref="root.customer.list" class="btn btn-link" data-toggle="tooltip" data-placement="right" title="Back"><span class="glyphicon glyphicon-arrow-left"></span></button>
+    </div>
+
+    <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <h3 class="panel-title">Customers Detail</h3>
+            </div>
+            <div class="panel-body">
+                
+            </div>
+
+            <!-- Table -->
+            <div>
+                <table class="table table-responsive table-striped table-hover">
+                    <tbody>
+                    <tr>
+                        <th>Customer ID</th>
+                        <td>{{model.Code}}</td>
+                        <th>Customer Name</th>
+                        <td>{{model.Name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Contact</th>
+                        <td>{{model.Phone}}</td>
+                        <th>Email</th>
+                        <td>{{model.Email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Company Name</th>
+                        <td>{{model.CompanyName}}</td>
+                        <th>Reference</th>
+                        <td>{{model.Reference}}</td>
+                    </tr>
+                    <tr>
+                        <th>Created</th>
+                        <td>{{model.Created | date : 'dd MMMM yyyy'}}</td>
+                        <th>Modified</th>
+                        <td>{{model.Modified | date : 'dd MMMM yyyy'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>                
+
+                <div class="panel-footer">
+
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>

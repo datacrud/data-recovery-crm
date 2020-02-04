@@ -1,0 +1,9 @@
+**/**/.vs/
+**/**/bin/
+**/**/obj/
+App/packages/
+**/**/node_modules/
+**/**/bower_components/
+App/Project.Client/Scripts/angular-sanitize.min.js.map
+App/Project.Client/dist/
+App/Project.Client/Scripts/

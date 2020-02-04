@@ -1,0 +1,105 @@
+﻿
+
+<div class="modal-header">    
+    <h3 class="modal-title">Customer Case Receive Receipt</h3>
+</div>
+<div class="modal-body" id="printableModel">
+    <!--<img src="app/images/drsbd_banner.png" style="width: 98%; height: 100px;"/>-->
+    <br/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h5 class="text-center">Date: {{today | date: 'dd MMMM yyyy'}}</h5>
+    <h4 class="text-center"><strong>Customer Receipt</strong></h4>
+    <br/>
+    <table class="table table-condensed">
+        <tr>
+            <td><strong>Customer ID: </strong></td>
+            <td>{{data.customer.Code}}</td>            
+            <td></td>
+            <td></td>
+            <td><strong>Received Date: </strong></td>
+            <td>{{data.case.ReceiveDate | date: 'dd MMMM yyyy'}}</td>
+        </tr>
+        <tr>
+            <td><strong>Customer Name: </strong></td>
+            <td >{{data.customer.Name}}</td>
+            <td></td>
+            <td></td>
+            <td><strong>Contact: </strong></td>
+            <td >{{data.customer.Phone}}</td>
+        </tr>
+        <tr>
+            <td><strong>Address: </strong></td>
+            <td colspan="8">{{data.customer.Address}}</td>
+        </tr>
+        <tr>
+            <td><strong>Company Name: </strong></td>
+            <td colspan="8">{{data.customer.CompanyName}}</td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <table class="table table-condensed text-left">
+        <tbody>
+            <tr>
+                <td class="col-sm-4 col-md-4 col-lg-4 col-xs-6"><strong>Case No:</strong></td>
+                <td>{{data.case.CaseNo}}</td>
+            </tr>
+            <tr>
+                <td><strong>Brand:</strong></td>
+                <td>{{data.case.Brand}}</td>
+            </tr>
+            <tr>
+                <td><strong>Capacity:</strong></td>
+                <td>{{data.case.Capacity}}</td>
+            </tr>
+            <tr>
+                <td><strong>SL:</strong></td>
+                <td>{{data.case.Sl}}</td>
+            </tr>
+            <tr>
+                <td><strong>Required Data:</strong></td>
+                <td>{{data.case.RequiredData}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+            <div>Signature</div>
+            <br />
+            <br />
+            <div>_______________________</div>
+            <div>Customer</div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+            <div>Signature</div>
+            <br/>
+            <br/>
+            <div>_______________________</div>
+            <div>Data Recovery Station</div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <h6 class="text-center">Verified By: {{data.username}}</h6>
+    </div>
+    <br/>
+
+    
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary pull-left" type="button" ng-click="printDiv('printableModel')">Print</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

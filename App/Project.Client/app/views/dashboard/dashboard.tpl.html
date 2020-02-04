@@ -1,0 +1,62 @@
+﻿<div class="row">
+
+    <div class="form-horizontal form-group">
+
+        <form ng-submit="search()">
+            <div class="col col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search by Case No, Customer Name" ng-model="searchRequest.Keyword" ng-change="reset()" required="required">
+                    <span type="submit" class="input-group-addon"><a style="cursor: pointer; text-decoration: none" class="glyphicon glyphicon-search btn-floating" ng-click="search()"></a></span>
+                </div>
+            </div>            
+            <br class="visible-xs-block"/>
+            <br class="visible-xs-block"/>
+            <div class="col col-xs-12 col-sm-4 col-md-2 col-lg-2">
+                <select class="form-control pull-right" ng-options="i as i for i in filters" ng-model="searchRequest.Filter" ng-change="search()"></select>
+            </div>
+        </form>
+        <br class="visible-sm-block visible-xs-block" />
+        <br class="visible-sm-block visible-xs-block"/>
+        <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="btn-group btn-group-justified" role="group">
+                <a ui-sref="root.case.create" class="btn btn-block btn-success"><span class="glyphicon glyphicon-plus"></span> Case</a>
+                <a ui-sref="root.customer.list" class="btn btn-block btn-info"> Customer</a>
+                <a ui-sref="root.expense" class="btn btn-block btn-info"> Expense</a>
+                <a ui-sref="root.revenue" class="btn btn-block btn-info"> Revenue</a>
+                <a ui-sref="root.report" class="btn btn-block btn-info"> Report</a>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+
+
+    <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="gridStyle" ng-grid="gridOptions" cg-busy="promise"></div>
+        <!--<div class="gridStyle" ui-grid="gridOptions" ui-grid-edit ui-grid-selection></div>-->
+
+
+
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div>

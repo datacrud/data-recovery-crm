@@ -1,0 +1,40 @@
+{
+  "name": "data-crud-customer-management",
+  "version": "2.0.0",
+  "description": "Data crud recovery software",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-changed": "^1.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-strip-debug": "^1.1.0",
+    "jshint": "^2.9.4",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.org/datacrud/drs-crm.git"
+  },
+  "keywords": [
+    "crm"
+  ],
+  "author": "DataCrud",
+  "license": "ISC",
+  "homepage": "https://github.org/datacrud/drs-crm#readme"
+}

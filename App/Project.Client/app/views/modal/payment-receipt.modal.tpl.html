@@ -1,0 +1,105 @@
+﻿
+
+<div class="modal-header">    
+    <h3 class="modal-title">Money Receipt</h3>
+</div>
+<div class="modal-body" id="printableModel">
+    <!--<img src="app/images/drsbd_banner.png" style="width: 98%; height: 100px;" />-->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h5 class="text-center">Date: {{today | date: 'dd MMMM yyyy'}}</h5>
+    <h4 class="text-center"><strong>Money Receipt</strong></h4>
+    <br/>
+    <table class="table table-condensed">
+        <tr>
+            <td><strong>Customer ID: </strong></td>
+            <td >{{data.customer.Code}}</td>
+        </tr>
+        <tr>
+            <td><strong>Customer Name: </strong></td>
+            <td >{{data.customer.Name}}</td>
+        </tr>
+        <tr>
+            <td><strong>Company Name: </strong></td>
+            <td >{{data.customer.CompanyName}}</td>
+        </tr>
+        <tr>
+            <td><strong>Case No: </strong></td>
+            <td >{{data.hddInfo.CaseNo}}</td>
+        </tr>
+        <tr>
+            <td><strong>Received Date: </strong></td>
+            <td >{{data.hddInfo.ReceiveDate | date: 'dd MMMM yyyy'}}</td>
+        </tr>
+        <!--<tr>
+            <td><strong>Delivery Date: </strong></td>
+            <td >{{data.hddInfo.DeliveryDate | date: 'dd MMMM yyyy'}}</td>
+        </tr>-->
+    </table>
+    <br/>
+    <br/>
+    <table class="table table-condensed">
+        <tr>
+            <th>Total Cost:</th>
+            <td >BDT {{data.hddInfo.TotalCost}}</td>
+        </tr>
+        <tr>
+            <th>Discount ({{data.hddInfo.DiscountPercent}} %):</th>
+            <td >BDT {{data.hddInfo.DiscountAmount}}</td>
+        </tr>
+        <tr class="text-info">
+            <th>{{data.payment.FeesType}}:</th>
+            <td >BDT {{data.payment.Amount}}</td>
+        </tr>
+        <tr class="text-primary">
+            <th>Total Paid:</th>
+            <td >BDT {{data.hddInfo.PaidAmount}}</td>
+        </tr>
+        <tr class="text-danger">
+            <th>Due:</th>
+            <td >BDT {{data.hddInfo.DueAmount}}</td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+            <div>Signature</div>
+            <br/>
+            <br/>
+            <div>_______________________</div>
+            <div>Customer</div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+            <div>Signature</div>
+            <br />
+            <br />
+            <div>_______________________</div>
+            <div>Data Recovery Station</div>
+        </div>
+    </div>
+    <br/>
+    <br />
+    <br/>
+    <br/>
+    <div class="text-center"><strong>Note: </strong>(-) Negative due amount means advance amount
+    </div>
+    <br/>
+    <div class="row">
+        <h6 class="text-center">Verified By: {{data.username}}</h6>
+    </div>
+    <br/>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary pull-left" type="button" ng-click="printDiv('printableModel')">Print</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

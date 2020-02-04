@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF0189B2-AD12-4349-9248-7F4140F67B99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Model</RootNamespace>
+    <AssemblyName>Project.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audit.cs" />
+    <Compile Include="AuditHelper.cs" />
+    <Compile Include="BusinessDbContext.cs" />
+    <Compile Include="CaseLog.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Expense.cs" />
+    <Compile Include="HddInfo.cs" />
+    <Compile Include="Migrations\201604021303363_BusinessModelsInititalCreate.cs" />
+    <Compile Include="Migrations\201604021303363_BusinessModelsInititalCreate.Designer.cs">
+      <DependentUpon>201604021303363_BusinessModelsInititalCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604061650391_AddedCaseLogModel.cs" />
+    <Compile Include="Migrations\201604061650391_AddedCaseLogModel.Designer.cs">
+      <DependentUpon>201604061650391_AddedCaseLogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604071747156_DiscountPropertyAddedOnHddInfo.cs" />
+    <Compile Include="Migrations\201604071747156_DiscountPropertyAddedOnHddInfo.Designer.cs">
+      <DependentUpon>201604071747156_DiscountPropertyAddedOnHddInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604071817192_PaymentModelModified.cs" />
+    <Compile Include="Migrations\201604071817192_PaymentModelModified.Designer.cs">
+      <DependentUpon>201604071817192_PaymentModelModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604220959059_FeesTypeAddedOnPaymentModel.cs" />
+    <Compile Include="Migrations\201604220959059_FeesTypeAddedOnPaymentModel.Designer.cs">
+      <DependentUpon>201604220959059_FeesTypeAddedOnPaymentModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610150544320_BackupDbbFiledAddedOnHddInfoModel.cs" />
+    <Compile Include="Migrations\201610150544320_BackupDbbFiledAddedOnHddInfoModel.Designer.cs">
+      <DependentUpon>201610150544320_BackupDbbFiledAddedOnHddInfoModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706061717226_RevenueModelAdded.cs" />
+    <Compile Include="Migrations\201706061717226_RevenueModelAdded.Designer.cs">
+      <DependentUpon>201706061717226_RevenueModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903160527272_Audit_Entity_Added.cs" />
+    <Compile Include="Migrations\201903160527272_Audit_Entity_Added.Designer.cs">
+      <DependentUpon>201903160527272_Audit_Entity_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Revenue.cs" />
+    <Compile Include="Status.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604021303363_BusinessModelsInititalCreate.resx">
+      <DependentUpon>201604021303363_BusinessModelsInititalCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604061650391_AddedCaseLogModel.resx">
+      <DependentUpon>201604061650391_AddedCaseLogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071747156_DiscountPropertyAddedOnHddInfo.resx">
+      <DependentUpon>201604071747156_DiscountPropertyAddedOnHddInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604071817192_PaymentModelModified.resx">
+      <DependentUpon>201604071817192_PaymentModelModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604220959059_FeesTypeAddedOnPaymentModel.resx">
+      <DependentUpon>201604220959059_FeesTypeAddedOnPaymentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610150544320_BackupDbbFiledAddedOnHddInfoModel.resx">
+      <DependentUpon>201610150544320_BackupDbbFiledAddedOnHddInfoModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061717226_RevenueModelAdded.resx">
+      <DependentUpon>201706061717226_RevenueModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903160527272_Audit_Entity_Added.resx">
+      <DependentUpon>201903160527272_Audit_Entity_Added.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Security\Project.Security.csproj">
+      <Project>{81F926DD-EC31-49AC-B64F-DF5962959CFE}</Project>
+      <Name>Project.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

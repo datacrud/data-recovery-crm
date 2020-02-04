@@ -1,0 +1,122 @@
+﻿<div class="row" cg-busy="promise">
+
+    <div>
+        <button ui-sref="root.dashboard" class="btn btn-link" data-toggle="tooltip" data-placement="right" title="Back"><span class="glyphicon glyphicon-arrow-left"></span></button>
+    </div>
+
+    <div class="col col-xs-12 col-sm-9 col-md-9 col-lg-9">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Case</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="save()">
+
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label">Customer :</label>
+                            <select class="form-control" ng-options="i.Id as i.Name for i in customerDropdownList " ng-model="model.CustomerId" required="required">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Brand :</label>
+                            <select class="form-control" ng-options="i as i for i in brands" ng-model="model.Brand" required="required">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Model :</label>
+                            <input type="text" class="form-control" ng-model="model.Model" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Capacity :</label>
+                            <input type="text" class="form-control" ng-model="model.Capacity" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Backup HDD :</label>
+                            <input type="text" class="form-control" ng-model="model.BackupHdd" required="required" />
+                        </div>                        
+                    </div>
+
+                    <div class="col-sm-offset-2 col-sm-5">
+                        <div class="form-group">
+                            <label class="control-label">Interface Type :</label>
+                            <select class="form-control" ng-options="i as i for i in interfaceTypes" ng-model="model.InterfaceType" required="required">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">SL :</label>
+                            <input type="text" class="form-control" ng-model="model.Sl"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Required Data :</label>
+                            <textarea class="form-control" ng-model="model.RequiredData" required="required"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Note :</label>
+                            <input type="text" class="form-control" ng-model="model.Note" required="required"/>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="control-label">Delivery Date :</label>
+                            <input type="date" class="form-control" ng-model="model.DeliveryDate" required="required"/>
+                        </div>-->
+                    </div>
+
+                    <div class="col-sm-12" style="margin-left: -15px">
+                        <button type="submit" ng-show="!isUpdateMode" class="btn btn-floating btn-info ">Save</button>
+                        <button type="submit" ng-show="isUpdateMode" class="btn btn-floating btn-info ">Update</button>
+                        <button ng-show="isUpdateMode" ui-sref="root.case.detail({id: model.Id})" class="btn btn-floating btn-warning">Back</button>
+                    </div>
+                    
+
+                </form>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+
+    <div class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Case Received Invoice</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="form-group">
+                    <form ng-submit="search()">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search by Case No" ng-model="searchRequest.Keyword" ng-change="reset()" required="required">
+                            <span type="submit" class="input-group-addon"><a style="cursor: pointer; text-decoration: none" class="glyphicon glyphicon-search btn-floating" ng-click="search()"></a></span>
+                        </div>
+                    </form>
+                </div>
+
+                <table class="table table-condensed table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Case#</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="l in cases">
+                        <td>{{l.CaseNo}}</td>
+                        <td class="text-right">
+                            <a class="glyphicon glyphicon-print" style="cursor: pointer;" ng-click="print('', l, 'print')"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>    
+</div>
+
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>

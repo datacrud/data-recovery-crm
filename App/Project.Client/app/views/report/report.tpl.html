@@ -1,0 +1,207 @@
+﻿<div class="row" cg-busy="promise">
+
+    <div>
+        <button ui-sref="root.dashboard" class="btn btn-link" data-toggle="tooltip" data-placement="right" title="Back"><span class="glyphicon glyphicon-arrow-left"></span></button>
+    </div>
+
+    <div class="col col-xs-12 col-sm-4 col-md-3 col-lg-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Report Search</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="search()">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <h6 class="control-label">From Date :</h6>
+                            <input type="date" class="form-control" ng-model="model.ReportFromDate" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <h6 class="control-label">To Date :</h6>
+                            <input type="date" class="form-control" ng-model="model.ReportToDate" required="required" />
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <h6 class="control-label">Select Report Type :</h6>
+                            <select class="form-control" ng-model="model.ReportType" ng-options="i as i for i in reportTypes" required="required">
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-floating btn-info">Search</button>
+
+                </form>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+
+
+
+    <div class="col col-xs-12 col-sm-8 col-md-9 col-lg-9">
+        <div class="panel panel-info">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Report Detail</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="col-sm-12" ng-show="view == 'expense'" id="no-more-tables">                    
+                    <table class="table table-responsive table-striped table-bordered table-hover" >
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="l in expenses track by $index">
+                            <td ng-show="false">{{l.Id}}</td>
+                            <td data-title="SL: ">{{$index + 1}}</td>
+                            <td data-title="Date: ">{{l.Created | date: 'dd MMMM yyyy'}}</td>
+                            <td data-title="Description: ">{{l.Description}}</td>
+                            <td data-title="Amount: ">{{l.Amount}}</td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <td class="visible-lg visible-md visible-sm"></td>
+                            <td class="visible-lg visible-md visible-sm"></td>
+                            <td class="visible-lg visible-md visible-sm"><strong>Total Expense:</strong></td>
+                            <td data-title="Total Expense: ">{{expenseReport.TotalExpense}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-6" ng-show="view == 'revenue'" id="no-more-tables">
+                    <h5 class="text-center text-danger">EXPENCES</h5>                    
+                    <table class="table table-responsive table-striped table-bordered table-hover" >
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="l in expenses track by $index">
+                            <td ng-show="false">{{l.Id}}</td>
+                            <td data-title="SL: ">{{$index + 1}}</td>
+                            <td data-title="Date: ">{{l.Created | date: 'dd MMMM yyyy'}}</td>
+                            <td data-title="Description: ">{{l.Description}}</td>
+                            <td data-title="Amount">BDT {{l.Amount}}</td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <td class="visible-lg visible-md visible-sm"></td>
+                            <td class="visible-lg visible-md visible-sm"></td>
+                            <td class="visible-lg visible-md visible-sm"><strong>Total Expense</strong></td>
+                            <td data-title="Total Expense: ">{{revenueReport.TotalExpense}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-6" ng-show="view == 'revenue'" id="no-more-tables">
+                    <h5 class="text-center text-success">REVENUES</h5>
+                    <table class="table table-responsive table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="l in revenues track by $index">
+                            <td ng-show="false">{{l.Id}}</td>
+                            <td data-title="SL: ">{{$index + 1}}</td>
+                            <td data-title="Date: ">{{l.Created | date: 'dd MMMM yyyy'}}</td>
+                            <td data-title="Amount">{{l.Amount}}</td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="visible-lg visible-md visible-sm"><strong>Total Revenue</strong></td>
+                            <td data-title="Total Revenue: ">{{revenueReport.TotalRevenue}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-12" ng-show="view == 'revenue'">
+                    <br/>
+                    <table class="table table-responsive table-striped table-bordered table-hover">
+
+                        <tbody>
+                        <tr>
+                            <th>Net Income</th>
+                            <th class="text-right">BDT {{revenueReport.NetIncome}}</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <p class="text-center"><strong>Note: </strong> Negetive(-) net income indicates <strong><i>Net Loss</i></strong>
+                    </p>
+                </div>
+
+
+                <div class="col-sm-12" ng-show="view == 'discount'" id="no-more-tables">
+                    <table class="table table-responsive table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Case No</th>
+                                <th>Discount Percent (%)</th>
+                                <th>Discount Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="l in discounts track by $index">
+                            <td ng-show="false">{{l.Id}}</td>
+                            <td data-title="SL:">{{$index + 1}}</td>
+                            <td data-title="Date:">{{l.Created | date: 'dd MMMM yyyy'}}</td>
+                            <td data-title="Case No:">{{l.CaseNo}}</td>
+                            <td data-title="Discount Percent:">{{l.DiscountPercent}} %</td>
+                            <td data-title="Discount Amount:">{{l.DiscountAmount}}</td>
+                        </tr>
+                            
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td class="visible-lg visible-md visible-sm"></td>
+                                <td class="visible-lg visible-md visible-sm"></td>
+                                <td class="visible-lg visible-md visible-sm"><strong>Total:</strong></td>
+                                <td data-title="Total Percent: "><strong>{{discountReport.TotalDiscountPercent}} %</strong></td>
+                                <td data-title="Total Amount: "><strong>BDT {{discountReport.TotalDiscountAmount}}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">                
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
